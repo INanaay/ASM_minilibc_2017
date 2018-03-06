@@ -1,24 +1,36 @@
-SRCS = 	src/strlen.asm
+SRCS =  src/strlen.asm  \
+	src/strchr.asm	\
+	src/memset.asm
 
-INCLUDES = include
+CC	= gcc
 
-OBJS = $(SRCS:.asm=.o)
+CFLAGS	= -fPIC -shared
+
+NA = nasm
+
+ASMFLAGS = -f elf64
+
+RM = rm -rf
 
 NAME = libasm.so
 
-all :
-	nasm -f elf64 $(SRCS) -o $(OBJS) && gcc -shared $(OBJS) -o $(NAME) -fPIC
+OBJS =  $(SRCS:.asm=.o)
 
-clean :
-	rm $(OBJS)
+all: $(NAME)
 
-fclean:
-	rm $(OBJS)
-	rm $(NAME)
+$(NAME): $(OBJS)
+	gcc -shared $(OBJS) -o libasm.so -fPIC
 
-re : fclean all
+%.o: %.asm
+	$(NA) $(ASMFLAGS) $< -o $@
 
-test:	re
-	gcc -L$(PWD) -Wall -o main_test -iquote ./include main_test.c -lmy_malloc -g3
+clean:
+	$(RM) $(OBJS)
 
-.PHONY: all clean flcean re export test
+fclean : clean
+	$(RM) $(OBJS)
+	$(RM) $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
