@@ -16,5 +16,5 @@ loop:
 	jmp loop
 end:
 	sub r8b, [rsi + rcx]
-	movsx rax, r8b		;moves a signed value into a register and sign-extends it with
+	movsx rax, r8b		;movxs = extends r8B to 64b
 	ret

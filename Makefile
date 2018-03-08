@@ -3,7 +3,8 @@ SRCS =  src/strlen.asm  \
 	src/memset.asm	\
 	src/memcpy.asm	\
 	src/strcmp.asm	\
-	src/strncmp.asm
+	src/strncmp.asm	\
+	src/rindex.asm
 
 CC	= gcc
 
