@@ -5,7 +5,8 @@ SRCS =  src/strlen.asm  \
 	src/strcmp.asm	\
 	src/strncmp.asm	\
 	src/rindex.asm	\
-	src/strcasecmp.asm
+	src/strcasecmp.asm	\
+	src/strcspn.asm
 
 CC	= gcc
 
