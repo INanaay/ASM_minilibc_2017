@@ -25,7 +25,7 @@ OBJS =  $(SRCS:.asm=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	gcc -shared $(OBJS) -o libasm.so -fPIC
+	ld -shared $(OBJS) -o libasm.so -fPIC
 
 %.o: %.asm
 	$(NA) $(ASMFLAGS) $< -o $@
