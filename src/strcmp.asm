@@ -3,7 +3,7 @@
 strcmp:
 	xor rcx, rcx
 loop:
-	mov r8b, [rdi + rcx]
+	mov r8b, [rdi + rcx] 	;R8B is the lower 8 bits of r8 register, which is a 64 bits regitster
 	cmp r8b, byte 0
 	jz end 			;jz = jump if zero
 	cmp [rsi + rcx], byte 0
