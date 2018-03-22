@@ -10,4 +10,5 @@ loop:
 	inc rdi
 	jmp loop
 end:
+	mov rax, rdi
 	ret
