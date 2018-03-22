@@ -7,6 +7,7 @@ loop:
 	jz end
 	mov [rdi], sil
 	inc rcx
+	inc rdi
 	jmp loop
 end:
 	ret
