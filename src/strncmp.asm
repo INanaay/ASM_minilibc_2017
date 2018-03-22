@@ -5,13 +5,13 @@ strncmp:
 loop:
 	mov r8b, [rdi + rcx]
 	cmp r8b, byte 0
-	jz end
+	je end
 	cmp [rsi + rcx], byte 0
-	jz end
+	je end
 	cmp r8b, [rsi + rcx]
 	jne end
 	cmp rcx, rdx
-
+	je end
 	inc rcx
 	jmp loop
 end:
